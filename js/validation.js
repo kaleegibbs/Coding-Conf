@@ -5,13 +5,13 @@ const email = document.getElementById("email");
 const github = document.getElementById("github");
 const avatar = document.getElementById("avatar");
 
-// Get the elements used for the avatar preview
+// Avatar preview
 const avatarPreview = document.getElementById("avatarPreview");
 const uploadIcon = document.getElementById("uploadIcon");
 const uploadText = document.getElementById("uploadText");
 
 
-// Displays an error message and highlights the input field
+// Displays an error message 
 function showError(input, errorId, message) {
 
     const errorElement = document.getElementById(errorId);
@@ -22,7 +22,7 @@ function showError(input, errorId, message) {
     input.setAttribute("aria-invalid", "true");
 }
 
-// Removes the error message when the input is corrected
+// Removes error message if it is corrected
 function clearError(input, errorId) {
 
     const errorElement = document.getElementById(errorId);
@@ -33,19 +33,13 @@ function clearError(input, errorId) {
     input.setAttribute("aria-invalid", "false");
 }
 
-// Checks that the attendee entered their full name
 function validateName() {
 
     const nameValue = fullName.value.trim();
 
     if (nameValue === "") {
 
-        showError(
-            fullName,
-            "nameError",
-            "Please enter your full name."
-        );
-
+        showError(fullName, "nameError", "Please enter your full name.");
         return false;
     }
 
@@ -61,21 +55,13 @@ function validateEmail() {
 
     if (emailValue === "") {
 
-        showError(
-            email,
-            "emailError",
-            "Please enter your email address."
-        );
+        showError( email, "emailError", "Please enter your email address." );
 
         return false;
 
     } else if (!emailPattern.test(emailValue)) {
 
-        showError(
-            email,
-            "emailError",
-            "Please enter a valid email address."
-        );
+        showError( email, "emailError", "Please enter a valid email address." );
 
         return false;
     }
@@ -91,10 +77,7 @@ function validateEmail() {
     ) {
 
         showError(
-            email,
-            "emailError",
-            "Please check your email provider spelling."
-        );
+            email, "emailError", "Please check your email provider spelling." );
 
         return false;
     }
@@ -111,21 +94,13 @@ function validateGithub() {
 
     if (githubValue === "") {
 
-        showError(
-            github,
-            "githubError",
-            "Please enter your GitHub username."
-        );
+        showError( github, "githubError", "Please enter your GitHub username." );
 
         return false;
 
     } else if (!githubPattern.test(githubValue)) {
 
-        showError(
-            github,
-            "githubError",
-            "Username must begin with @ and contain a valid handle."
-        );
+        showError( github, "githubError", "Username must begin with @ and contain a valid handle.");
 
         return false;
     }
@@ -140,11 +115,7 @@ function validateAvatar() {
 
     if (!avatarFile) {
 
-        showError(
-            avatar,
-            "avatarError",
-            "Please upload an avatar."
-        );
+        showError(avatar, "avatarError",  "Please upload an avatar." );
 
         return false;
     }
@@ -154,21 +125,13 @@ function validateAvatar() {
 
     if (!allowedTypes.includes(avatarFile.type)) {
 
-        showError(
-            avatar,
-            "avatarError",
-            "Only JPG and PNG images are allowed."
-        );
+        showError( avatar, "avatarError", "Only JPG and PNG images are allowed. );
 
         return false;
 
     } else if (avatarFile.size > maximumSize) {
 
-        showError(
-            avatar,
-            "avatarError",
-            "Your image must be smaller than 500KB."
-        );
+        showError( avatar, "avatarError", "Your image must be smaller than 500KB." );
 
         return false;
     }
@@ -176,7 +139,7 @@ function validateAvatar() {
     return true;
 }
 
-// Saves the registration information so it can be displayed on the ticket page
+// Saves the registration info so it can be displayed on the ticket page
 function saveRegistration(nameValue, emailValue, githubValue, avatarFile) {
 
     const reader = new FileReader();
@@ -201,7 +164,6 @@ function saveRegistration(nameValue, emailValue, githubValue, avatarFile) {
         window.location.href = "ticket.html";
     };
 
-    // Converts the uploaded image so it can be saved with the other details
     reader.readAsDataURL(avatarFile);
 }
 
@@ -250,19 +212,11 @@ avatar.addEventListener("change", function() {
     // Check that the selected image is an allowed format and size
     if (!allowedTypes.includes(selectedFile.type)) {
 
-        showError(
-            avatar,
-            "avatarError",
-            "Only JPG and PNG images are allowed."
-        );
+        showError(avatar,"avatarError","Only JPG and PNG images are allowed.");
 
     } else if (selectedFile.size > maximumSize) {
 
-        showError(
-            avatar,
-            "avatarError",
-            "Your image must be smaller than 500KB."
-        );
+        showError(  avatar, "avatarError","Your image must be smaller than 500KB.");
 
     } else {
 
