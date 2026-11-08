@@ -1,3 +1,4 @@
+console.log("Validation JavaScript is working!");
 const registrationForm = document.getElementById("registrationForm");
 
 const fullName = document.getElementById("fullName");
