@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <img src="../assets/images/logo-full.svg" alt="Coding Conf Logo">
+    </header>
+
+    <main>
+
+        <section class="registration-container">
+
+            <h1>Your Journey to Coding Conf 2026 Starts Here!</h1>
+
+            <p class="registration-description">
+                Secure your spot at next year's biggest coding conference.
+            </p>
+
+            <form id="registrationForm" novalidate>
+
+                <div class="form-group">
+                    <label for="avatar">Upload Avatar</label>
+
+                    <div class="upload-container">
+
+                <!-- Upload icon displayed before an image is selected -->
+                <img src="../assets/images/icon-upload.svg" alt="" class="upload-icon" id="uploadIcon">
+
+                <!-- Displays the selected avatar image -->
+                <img src="../assets/images/icon-upload.svg" alt="Selected avatar preview" class="avatar-preview" id="avatarPreview" hidden>
+                
+                <input type="file" id="avatar" name="avatar" accept=".jpg,.jpeg,.png">
+
+                <p id="uploadText"> Drag and drop or click to upload </p>
+
+                </div>
+                    
+                    <!-- This reminds users of the accepted image formats and file size -->
+                    <small class="upload-info">
+
+                        <img src="../assets/images/icon-info.svg" alt="">
+
+                        Upload your photo (JPG/JPEG or PNG, max size: 500KB).
+
+                    </small>
+
+                    <span class="error-message" id="avatarError"> </span>
+                
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" autocomplete="name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email">
+                    <span class="error-message" id="emailError"> </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="github">GitHub Username</label>
+                    <input type="text" id="github" name="github" placeholder="@yourusername">
+                    <span class="error-message" id="githubError"> </span>
+                </div>
+
+                <button type="submit" class="register-btn"> Generate My Ticket </button>
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="../js/validation.js"></script>
+
+</body>
+</html>
