@@ -125,7 +125,7 @@ function validateAvatar() {
 
     if (!allowedTypes.includes(avatarFile.type)) {
 
-        showError( avatar, "avatarError", "Only JPG and PNG images are allowed. );
+        showError( avatar, "avatarError", "Only JPG and PNG images are allowed." );
 
         return false;
 
