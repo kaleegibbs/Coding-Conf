@@ -46,14 +46,14 @@ body {
     flex-direction: column;
 }
 
-.site-header {
+.website-header {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 35px 20px;
 }
 
-.site-header img {
+.website-header img {
     width: 190px;
     max-width: 100%;
 }
@@ -70,7 +70,7 @@ main {
     padding: 40px 20px;
 }
 
-.conference-intro {
+.website-intro {
     width: min(100%, 750px);
     text-align: center;
 
@@ -81,19 +81,19 @@ main {
     gap: 25px;
 }
 
-.conference-intro h1 {
+.website-intro h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     line-height: 1.2;
 }
 
-.conference-intro p {
+.website-intro p {
     color: var(--neutral-300);
     font-size: 1.2rem;
     line-height: 1.6;
 }
 
-.conference-intro strong {
+.website-intro strong {
     color: var(--orange-500);
 }
 
@@ -501,11 +501,6 @@ footer {
 
     .confirmation-message {
         font-size: 1rem;
-    }
-
-    .ticket-card {
-        width: 100%;
-        aspect-ratio: 600 / 280;
     }
 
     .ticket-main {
