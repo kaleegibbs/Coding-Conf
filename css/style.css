@@ -1,1 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap');
 
+:root {
+    --neutral-0: hsl(0, 0%, 100%);
+    --neutral-300: hsl(252, 6%, 83%);
+    --neutral-500: hsl(245, 15%, 58%);
+    --neutral-700: hsl(245, 19%, 35%);
+    --neutral-900: hsl(248, 70%, 10%);
+
+    --orange-500: hsl(7, 88%, 67%);
+    --orange-700: hsl(7, 71%, 60%);
+
+    --main-font: 'Inconsolata', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--main-font);
+    color: var(--neutral-0);
+    background-color: var(--neutral-900);
+
+    background-image:
+        url("../assets/images/pattern-squiggly-line-top.svg"),
+        url("../assets/images/pattern-squiggly-line-bottom-desktop.svg"),
+        url("../assets/images/background-desktop.png");
+
+    background-size:
+        446px auto,
+        825px auto,
+        cover;
+
+    background-position:
+        top right,
+        bottom left,
+        center;
+
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.site-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+}
+
+.site-header img {
+    width: 190px;
+    max-width: 100%;
+}
+
+/* Keeps the main content centred and allows the footer to stay below it */
+main {
+    width: 100%;
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+.conference-intro {
+    width: min(100%, 750px);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.conference-intro h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.conference-intro p {
+    color: var(--neutral-300);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.conference-intro strong {
+    color: var(--orange-500);
+}
+
+
+.register-btn {
+    display: inline-block;
+
+    background-color: var(--orange-500);
+    color: var(--neutral-900);
+
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+
+    padding: 16px 35px;
+    border-radius: 10px;
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: var(--orange-700);
+    transform: translateY(-3px);
+}
+
+.registration-container {
+    width: min(100%, 450px);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.registration-container h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    text-align: center;
+    font-weight: 800;
+}
+
+.registration-description {
+    text-align: center;
+    color: var(--neutral-300);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+#registrationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.form-group label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.form-group input:not([type="file"]) {
+    width: 100%;
+    min-height: 53px;
+    padding: 14px;
+
+    border: 1px solid var(--neutral-500);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: var(--neutral-0);
+    font-family: var(--main-font);
+    font-size: 1rem;
+}
+
+.form-group input::placeholder {
+    color: var(--neutral-300);
+    opacity: 0.8;
+}
+
+
+.upload-container {
+    min-height: 125px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+    position: relative;
+
+    border: 1px dashed var(--neutral-500);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    cursor: pointer;
+}
+
+.upload-icon {
+    width: 48px;
+    height: 48px;
+
+    padding: 12px;
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.avatar-preview {
+    width: 65px;
+    height: 65px;
+
+    object-fit: cover;
+    border-radius: 10px;
+
+    border: 2px solid var(--neutral-300);
+}
+
+/* Keeps the preview hidden until an image is selected */
+.avatar-preview[hidden] {
+    display: none;
+}
+
+.upload-container p {
+    color: var(--neutral-300);
+    font-size: 1rem;
+}
+
+/* Makes the file input cover the upload area so it can be clicked */
+.upload-container input[type="file"] {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-container:has(input[type="file"]:hover) {
+    border-color: var(--orange-500);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.upload-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--neutral-300);
+    font-size: 0.8rem;
+}
+
+.upload-info img {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.error-message {
+    color: var(--orange-500);
+    font-size: 0.85rem;
+    min-height: 16px;
+}
+
+#fullName:hover {
+    border-color: var(--neutral-0);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.form-group input.invalid {
+    border-color: var(--orange-500);
+}
+
+#registrationForm .register-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-family: var(--main-font);
+    margin-top: 2px;
+}
+
+.ticket-confirmation {
+    width: min(100%, 750px);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 35px;
+    text-align: center;
+}
+
+.ticket-confirmation > h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.ticket-confirmation > h1 span {
+    background: linear-gradient(
+        90deg,
+        var(--orange-500),
+        #f5b6a8
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.confirmation-message {
+    max-width: 470px;
+
+    color: var(--neutral-300);
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.confirmation-message span {
+    color: var(--orange-500);
+}
+
+
+.ticket-card {
+    width: min(100%, 600px);
+    aspect-ratio: 600 / 280;
+
+    display: flex;
+    position: relative;
+
+    overflow: hidden;
+
+    background-image: url("../assets/images/pattern-ticket.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.ticket-main {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 25px;
+    text-align: left;
+}
+
+.ticket-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ticket-header > img {
+    width: 45px;
+    height: 45px;
+}
+
+.ticket-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.ticket-header p {
+    color: var(--neutral-300);
+    font-size: 0.95rem;
+}
+
+/* Attendee information displayed on the ticket */
+
+.attendee-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.ticket-avatar {
+    width: 75px;
+    height: 75px;
+
+    object-fit: cover;
+    border-radius: 12px;
+
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.attendee-text h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.attendee-text a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--neutral-300);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.attendee-text a img {
+    width: 18px;
+    height: 18px;
+}
+
+/* Ticket number displayed vertically on the right side */
+
+.ticket-number {
+    width: 90px;
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticket-number span {
+    writing-mode: vertical-rl;
+
+    font-size: 1.3rem;
+    color: var(--neutral-300);
+
+    letter-spacing: 2px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+
+    color: var(--neutral-300);
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    body {
+        background-image:
+            url("../assets/images/pattern-squiggly-line-top.svg"),
+            url("../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+            url("../assets/images/background-tablet.png");
+
+        background-size:
+            300px auto,
+            500px auto,
+            cover;
+
+        background-position:
+            top right,
+            bottom left,
+            center;
+
+        background-repeat: no-repeat;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    body {
+        background-image:
+            url("../assets/images/pattern-squiggly-line-top.svg"),
+            url("../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+            url("../assets/images/background-mobile.png");
+
+        background-size:
+            220px auto,
+            350px auto,
+            cover;
+
+        background-position:
+            top right,
+            bottom left,
+            center;
+
+        background-repeat: no-repeat;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .ticket-confirmation {
+        gap: 25px;
+    }
+
+    .ticket-confirmation > h1 {
+        font-size: 2rem;
+    }
+
+    .confirmation-message {
+        font-size: 1rem;
+    }
+
+    .ticket-card {
+        width: 100%;
+        aspect-ratio: 600 / 280;
+    }
+
+    .ticket-main {
+        padding: 15px;
+    }
+
+    .ticket-header {
+        gap: 10px;
+    }
+
+    .ticket-header > img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ticket-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .ticket-header p {
+        font-size: 0.75rem;
+    }
+
+    .ticket-avatar {
+        width: 55px;
+        height: 55px;
+    }
+
+    .attendee-text h3 {
+        font-size: 1rem;
+    }
+
+    .attendee-text a {
+        font-size: 0.75rem;
+    }
+
+    .ticket-number {
+        width: 50px;
+    }
+
+    .ticket-number span {
+        font-size: 1rem;
+    }
+
+}
+
+/* Keeps links, buttons and input fields visible when using a keyboard */
+
+:where(a, button, input):focus-visible {
+    outline: 3px solid var(--neutral-0);
+    outline-offset: 4px;
+}
