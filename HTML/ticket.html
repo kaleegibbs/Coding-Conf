@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <img src="../assets/images/logo-full.svg" alt="Coding Conf Logo">
+    </header>
+
+    <main>
+
+        <section class="ticket-confirmation">
+
+            <h1> Congrats, <span id="ticketName"> Name </span>! Your ticket is ready. </h1>
+
+            <p class="confirmation-message"> We've emailed your ticket to <span id="ticketEmail"> email@example.com</span> and will send updates in the run up to the event. </p>
+
+            <article class="ticket-card">
+
+                <div class="ticket-main">
+
+                    <div class="ticket-header">
+                        <img src="../assets/images/logo-mark.svg" alt="Coding Conf icon">
+                        
+                        <div>
+                            <h2>Coding Conf</h2>
+                            <p>October 26, 2026 / Papine, Kgn</p>
+                        </div>
+                    </div>
+
+                    <div class="attendee-details">
+
+                        <img id="ticketAvatar" src="../assets/images/logo-mark.svg" alt="Attendee profile picture" class="ticket-avatar">
+                        
+                        <div class="attendee-text">
+
+                            <h3 id="attendeeName">Full Name</h3>
+                            <a id="githubLink" href="#" target="_blank" rel="noopener noreferrer">
+                                <img src="../assets/images/icon-github.svg" alt="GitHub">
+
+                                <span id="attendeeGithub"> @username </span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="ticket-number">
+                    <span id="ticketNumber">#01609</span>
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="../js/ticket.js"></script>
+
+</body>
+</html>
